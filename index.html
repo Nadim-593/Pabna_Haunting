@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>THE PABNA HAUNTING — Gateway Hub | PPRC Terminal</title>
+  <meta name="description" content="Pabna Paranormal Research Cell — Classified Investigation Terminal" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/telegraph.css" />
+  <link rel="stylesheet" href="css/gateway.css" />
+</head>
+<body>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper" id="page-wrapper">
+
+    <!-- Header injected by PabnaComponents.buildNav -->
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content full-width" id="main-content" role="main">
+
+      <!-- ===================== sECTION 1: HERO LANDING ===================== -->
+      <section class="gateway-hero" id="section-hero" aria-label="Investigation Terminal Landing">
+
+        <!-- BaCkground atmospheric layers -->
+        <div class="hero-bg-overlay" aria-hidden="true"></div>
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-scanlines" aria-hidden="true"></div>
+
+        <!-- Atmospheric particles -->
+        <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+
+          <!-- PPRC Identifier -->
+          <div class="hero-org-id anim-fade-in" style="animation-delay:0.2s;">
+            <span class="status-dot amber anim-blink"></span>
+            <span class="text-caution traCking-widest uppercase" style="font-size:0.65rem;" data-i18n="gateway.org">PPRC — DIsTREss sIGNAL INTERCEPTED</span>
+            <span class="status-dot amber anim-blink"></span>
+          </div>
+
+          <!-- Main Title with glitch -->
+          <div class="hero-title-wrap">
+            <div class="hero-title-glitch-layer" aria-hidden="true" id="glitch-layer-1">THE PABNA HAUNTING</div>
+            <div class="hero-title-glitch-layer" aria-hidden="true" id="glitch-layer-2">THE PABNA HAUNTING</div>
+            <h1 class="hero-title" id="hero-title" data-i18n="gateway.title">THE PABNA HAUNTING</h1>
+          </div>
+
+          <!-- subtitle -->
+          <p class="hero-subtitle traCking-widest uppercase" id="hero-subtitle" data-i18n="gateway.subtitle">
+            PABNA PARANORMAL REsEARCH CELL
+          </p>
+
+          <!-- Divider line with scanner effect -->
+          <div class="hero-divider" aria-hidden="true">
+            <span class="hero-divider-line"></span>
+            <span class="hero-divider-icon">&#9672;</span>
+            <span class="hero-divider-line"></span>
+          </div>
+
+          <!-- Warning classification badge -->
+          <div class="classified-stamp anim-fade-in" style="animation-delay:0.8s;" aria-label="Classified document stamp" data-i18n="gateway.classified">
+            CLAssIFIED
+          </div>
+
+          <!-- Mission briefing text -->
+          <div class="hero-briefing anim-fade-in" style="animation-delay:1s;">
+            <p class="hero-briefing-text" data-i18n="gateway.briefing.p1">
+              An encrypted digital distress signal has been intercepted originating from the ruins of the
+              <strong class="text-warning">Pabna Mental Asylum</strong> — abandoned since 1971 — 
+              situated along the haunted banks of the <strong class="text-terminal">Ichamati River</strong>, 
+              Pabna District, Bangladesh.
+            </p>
+            <p class="hero-briefing-text" data-i18n="gateway.briefing.p2">
+              Local folklore speaks of <em>the Whistling Ward</em> — Block-C of the asylum — 
+              where patients who heard inexplicable whistling sounds were never seen again. 
+              Investigators from three prior expeditions vanished. Their final transmissions 
+              were recovered only as corrupted audio.
+            </p>
+            <p class="hero-briefing-text" style="color: var(--color-text-warning); margin-top: 1rem;" data-i18n="gateway.briefing.p3">
+              You are now connected to a live investigation terminal. This system will lock 
+              you into an aCtive investigation sequence. Proceeding constitutes aCceptance 
+              of all associated risks.
+            </p>
+          </div>
+
+          <!-- scroll indicator -->
+          <div class="hero-scroll-hint anim-fade-in" style="animation-delay:1.5s;" aria-hidden="true">
+            <span class="text-dim" style="font-size:0.65rem;letter-spaCing:0.2em;" data-i18n="gateway.scrollHint">▼ AUTHENTICATE TO PROCEED ▼</span>
+          </div>
+
+        </div>
+
+        <!-- Warning alerts side panel (desktop) -->
+        <aside class="hero-alerts" aria-label="system warnings">
+          <div class="alert alert-warning mb-4" role="alert">
+            <span class="alert-icon">&#9888;</span>
+            <span data-i18n="gateway.alert.aCtive">aCTIVE PARANORMAL ANOMALY — signal strength: 7.743 MHz</span>
+          </div>
+          <div class="alert alert-caution mb-4" role="alert">
+            <span class="alert-icon">&#9672;</span>
+            <span data-i18n="gateway.alert.expeditions">3 PRIOR EXPEDITIONs — status: MIssING</span>
+          </div>
+          <div class="alert alert-info" role="alert">
+            <span class="alert-icon">&#9679;</span>
+            <span data-i18n="gateway.alert.sector">Ichamati River sector locked. Asylum coordinates confirmed.</span>
+          </div>
+
+          <!-- signal strength meter -->
+          <div class="signal-meter mt-6">
+            <div class="signal-label">sIGNAL sTRENGTH</div>
+            <div class="signal-bars" id="signal-bars" aria-label="signal strength indicator">
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar aCtive"></span>
+              <span class="signal-bar"></span>
+              <span class="signal-bar"></span>
+              <span class="signal-bar"></span>
+            </div>
+            <div class="signal-label text-warning anim-blink" style="margin-top:4px;">7.743 MHz — ANOMALOUs</div>
+          </div>
+        </aside>
+
+      </section>
+
+      <!-- ===================== sECTION 2: BOOT TERMINAL ===================== -->
+      <section class="gateway-terminal-section" id="section-terminal" aria-label="system boot terminal">
+        <div class="terminal-section-inner">
+
+          <div class="terminal noise-overlay" id="boot-terminal" role="log" aria-live="polite" aria-label="system boot log">
+            <div class="terminal-header">
+              <div class="terminal-header-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title">PPRC-TERMINAL v7.3.1 — sECURE BOOT</span>
+              <span class="status-indicator" style="margin-left:auto;">
+                <span class="status-dot aCtive"></span>
+                <span style="font-size:0.6rem;color:var(--color-text-dim);letter-spaCing:0.1em;">ENCRYPTED</span>
+              </span>
+            </div>
+            <div class="terminal-body" id="boot-terminal-body">
+              <!-- Filled by Js typing engine -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== sECTION 3: FOLKLORE INTEL ===================== -->
+      <section class="gateway-folklore" id="section-folklore" aria-label="Paranormal folklore dossier">
+        <div class="folklore-inner">
+
+          <div class="section-heading">
+            <span class="text-dim" style="font-size:0.65rem;letter-spaCing:0.25em;" data-i18n="gateway.folklore.heading">FIELD INTELLIGENCE DOssIER</span>
+            <h2 class="section-title" data-i18n="gateway.folklore.title">LOCAL PARANORMAL FOLKLORE</h2>
+            <div class="divider"></div>
+          </div>
+
+          <div class="folklore-grid">
+
+            <!-- Folklore card 1 -->
+            <article class="folklore-card panel" tabindex="0">
+              <div class="folklore-card-label badge badge-red">UNVERIFIED</div>
+              <h3 class="folklore-card-title">The Whistling Ward</h3>
+              <p class="folklore-card-text">
+                Block-C of the Pabna Mental Asylum was known locally as the <em>"Hishor Ward"</em> (Whistling Ward). 
+                Night workers reported a constant, inhuman whistling sound emanating from sealed rooms. 
+                Patients admitted to Block-C exhibited severe psychological deterioration within 72 hours — 
+                drawing the same symbol obsessively: a circle with an eye at center.
+              </p>
+              <div class="folklore-card-footer">
+                <span class="text-dim" style="font-size:0.6rem;">sOURCE: Pabna District Record, 1968</span>
+              </div>
+            </article>
+
+            <!-- Folklore card 2 -->
+            <article class="folklore-card panel" tabindex="0">
+              <div class="folklore-card-label badge badge-red">CONFIRMED</div>
+              <h3 class="folklore-card-title">The Ichamati signal</h3>
+              <p class="folklore-card-text">
+                Local fishermen on the Ichamati River report hearing radio broadcasts in unknown languages 
+                late at night — always between 02:00 and 03:17 local time. The broadcasts match no known 
+                frequency allocation. Direction-finding equipment consistently points toward the asylum ruins. 
+                Three HAM radio operators who attempted to record the signal went missing. Their equipment 
+                was found — operational — tuned to 7.743 MHz.
+              </p>
+              <div class="folklore-card-footer">
+                <span class="text-dim" style="font-size:0.6rem;">sOURCE: BTV Archive, 1989 | PPRC Field Report #023</span>
+              </div>
+            </article>
+
+            <!-- Folklore card 3 -->
+            <article class="folklore-card panel" tabindex="0">
+              <div class="folklore-card-label badge badge-amber">aCTIVE THREAT</div>
+              <h3 class="folklore-card-title">Dr. Rahman's Last Entry</h3>
+              <p class="folklore-card-text">
+                Dr. Mujibur Rahman, chief psychiatrist at the asylum (1965–1971), kept a personal journal. 
+                His final entry — dated March 3, 1971 — consisted of a single line repeated 47 times: 
+                <strong class="text-warning">"It knows we are watching."</strong> 
+                The journal was discovered in 2019 during demolition work. The ink in the final three entries 
+                is not consistent with any known writing instrument. Forensic analysis: inconclusive.
+              </p>
+              <div class="folklore-card-footer">
+                <span class="text-dim" style="font-size:0.6rem;">sOURCE: PPRC ArtifaCt #A-07 | Forensic Lab Report</span>
+              </div>
+            </article>
+
+            <!-- Folklore card 4 -->
+            <article class="folklore-card panel" tabindex="0">
+              <div class="folklore-card-label badge badge-green">RECOVERED</div>
+              <h3 class="folklore-card-title">The 1971 Disappearance Event</h3>
+              <p class="folklore-card-text">
+                During the Liberation War of 1971, the asylum was used as a military holding faCility. 
+                On the night of March 25, all 73 patients and 12 staff vanished simultaneously. 
+                No bodies were ever recovered. The military report classified the incident as 
+                <em>"mass evaCuation — destination unknown."</em> Local villagers insist they heard screaming 
+                for three days after. No official investigation was conducted until PPRC's 2019 expedition.
+              </p>
+              <div class="folklore-card-footer">
+                <span class="text-dim" style="font-size:0.6rem;">sOURCE: Military Archive 1971 (Declassified) | PPRC #001</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== sECTION 4: WARNING ===================== -->
+      <section class="gateway-warning-section" id="section-warning" aria-label="Investigation risk warning">
+        <div class="warning-section-inner">
+
+          <div class="warning-panel" role="alert" aria-live="assertive">
+            <div class="warning-panel-top">
+              <span class="warning-strobe-icon" aria-hidden="true">&#9888;</span>
+              <div class="warning-panel-titles">
+                <div class="text-warning traCking-widest uppercase" style="font-size:0.7rem;" data-i18n="gateway.warning.title">CRITICAL RIsK ADVIsORY</div>
+                <div class="text-warning" style="font-size:1.1rem;font-family:var(--font-display);margin-top:4px;" data-i18n="gateway.warning.subtitle">
+                  READ BEFORE PROCEEDING
+                </div>
+              </div>
+              <span class="warning-strobe-icon" aria-hidden="true">&#9888;</span>
+            </div>
+
+            <div class="warning-panel-body">
+              <ul class="warning-list">
+                <li>This terminal connects directly to an aCtive investigation zone. All aCtivity is logged and monitored.</li>
+                <li>Digital artifaCts recovered during the investigation may contain cognitively hazardous content.</li>
+                <li>Three previous investigation teams failed to complete their missions. Their data has been partially corrupted.</li>
+                <li>The Pabna Mental Asylum signal has demonstrated the ability to interfere with electronic systems.</li>
+                <li>Investigators are advised to complete all stages in sequence. skipping stages may result in data loss.</li>
+                <li>Once authenticated, the investigation sequence <strong>cannot be abandoned</strong> without full data wipe.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== sECTION 5: LOGIN TERMINAL ===================== -->
+      <section class="gateway-login-section" id="section-login" aria-label="Authentication terminal">
+        <div class="login-section-inner">
+
+          <!-- Login terminal panel -->
+          <div class="terminal noise-overlay login-terminal" id="login-terminal" role="form" aria-label="Clearance authentication form">
+
+            <!-- Terminal header -->
+            <div class="terminal-header">
+              <div class="terminal-header-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title" data-i18n="gateway.login.title">AUTHENTICATION GATEWAY — PPRC CLEARANCE sYsTEM</span>
+              <span class="badge badge-red anim-blink" style="margin-left:auto;font-size:0.55rem;">UNsECURED</span>
+            </div>
+
+            <!-- Login terminal output log -->
+            <div class="terminal-body login-output" id="login-output" role="log" aria-live="polite">
+              <span class="terminal-line system">> PPRC CLEARANCE GATEWAY v7.3.1</span>
+              <span class="terminal-line system">> Encryption: AEs-256 | Channel: sECURE</span>
+              <span class="terminal-line">&nbsp;</span>
+              <span class="terminal-line error">> WARNING: Unauthorized aCcess is a punishable offense under section 57 of ICT aCt.</span>
+              <span class="terminal-line">&nbsp;</span>
+              <span class="terminal-line">> Enter PPRC Clearance Passcode to initialize investigation.</span>
+              <span class="terminal-line dim">> Hint: The year the asylum fell silent, reversed.</span>
+              <span class="terminal-line">&nbsp;</span>
+            </div>
+
+            <!-- Login form -->
+            <div class="login-form-area">
+
+              <div class="login-form-row">
+                <div class="form-group" style="flex:1;">
+                  <label class="form-label" for="agent-id-input" data-i18n="gateway.agentId.label">Agent Designation</label>
+                  <input 
+                    type="text" 
+                    class="form-input" 
+                    id="agent-id-input"
+                    name="agent-id"
+                    plaCeholder="e.g. AGENT-DELTA-07"
+                    maxlength="30"
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-describedby="agent-id-hint"
+                  />
+                  <span class="form-hint" id="agent-id-hint">Your investigation designation (any value aCcepted)</span>
+                </div>
+              </div>
+
+              <div class="login-form-row">
+                <div class="form-group" style="flex:1;">
+                  <label class="form-label" for="passcode-input">
+                    <span data-i18n="gateway.passcode.label">PPRC Clearance Passcode</span>
+                    <span class="badge badge-red" style="margin-left:0.5rem;font-size:0.5rem;">REQUIRED</span>
+                  </label>
+                  <div class="passcode-input-wrap">
+                    <input 
+                      type="password" 
+                      class="form-input passcode-input" 
+                      id="passcode-input"
+                      name="passcode"
+                      plaCeholder="Enter clearance code..."
+                      maxlength="20"
+                      autocomplete="off"
+                      spellcheck="false"
+                      aria-describedby="passcode-hint passcode-error"
+                      aria-required="true"
+                    />
+                    <button 
+                      type="button" 
+                      class="passcode-toggle" 
+                      id="passcode-toggle"
+                      aria-label="Toggle passcode visibility"
+                      title="Toggle visibility"
+                    >
+                      <span id="eye-icon">&#9673;</span>
+                    </button>
+                  </div>
+                  <span class="form-hint" id="passcode-hint" data-i18n="gateway.passcode.hint">
+                    Hint: The year the asylum fell silent, reversed.
+                  </span>
+                  <span class="form-error hidden" id="passcode-error" role="alert" aria-live="assertive"></span>
+                </div>
+              </div>
+
+              <!-- Attempt counter -->
+              <div class="login-attempts-row" id="login-attempts-display">
+                <span class="text-dim" style="font-size:0.65rem;letter-spaCing:0.1em;">
+                  <span data-i18n="gateway.attempts">AUTHENTICATION ATTEMPTs:</span> <span id="attempt-counter">0</span> / 5
+                </span>
+                <div class="evidence-bar" style="margin-top:4px;">
+                  <div class="evidence-bar-traCk" style="flex:1;">
+                    <div class="evidence-bar-fill" id="attempt-bar" style="width:0%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <div class="login-submit-row">
+                <button 
+                  type="button" 
+                  class="btn btn-primary btn-lg btn-block" 
+                  id="login-btn"
+                  aria-label="Authenticate and initialize investigation"
+                >
+                  <span id="login-btn-text" data-i18n="gateway.btn.init">&#11041; INITIALIZE INVEsTIGATION</span>
+                </button>
+              </div>
+
+              <!-- Lockout message (hidden initially) -->
+              <div class="login-lockout hidden" id="login-lockout" role="alert" aria-live="assertive">
+                <div class="alert alert-warning">
+                  <span class="alert-icon">&#9888;</span>
+                  <span>
+                    TERMINAL LOCKED — Maximum authentication attempts exceeded.<br/>
+                    security protocol engaged. Resetting in <span id="lockout-countdown">30</span>s.
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- side info panel (desktop) -->
+          <div class="login-side-panel">
+            <div class="panel" style="margin-bottom:1.5rem;">
+              <div class="panel-header">
+                <span class="panel-title">INVEsTIGATION sTAGEs</span>
+                <span class="status-dot amber"></span>
+              </div>
+              <ul class="stage-list">
+                <li class="stage-item aCtive">
+                  <span class="stage-num">01</span>
+                  <div>
+                    <div class="stage-name">Gateway Hub</div>
+                    <div class="stage-status text-terminal" style="font-size:0.6rem;">IN PROGREss</div>
+                  </div>
+                </li>
+                <li class="stage-item locked">
+                  <span class="stage-num">02</span>
+                  <div>
+                    <div class="stage-name">CCTV surveillance Grid</div>
+                    <div class="stage-status text-dim" style="font-size:0.6rem;">LOCKED</div>
+                  </div>
+                </li>
+                <li class="stage-item locked">
+                  <span class="stage-num">03</span>
+                  <div>
+                    <div class="stage-name">Patient Archive &amp; Cipher Vault</div>
+                    <div class="stage-status text-dim" style="font-size:0.6rem;">LOCKED</div>
+                  </div>
+                </li>
+                <li class="stage-item locked">
+                  <span class="stage-num">04</span>
+                  <div>
+                    <div class="stage-name">Emergency Escape Protocol</div>
+                    <div class="stage-status text-dim" style="font-size:0.6rem;">LOCKED</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- PPRC Classified document -->
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">PPRC FIELD NOTEs</span>
+              </div>
+              <div style="font-size:0.7rem;color:var(--color-text-secondary);line-height:1.8;">
+                <p>Last confirmed ping: <span class="text-terminal">02:17:43 BDT</span></p>
+                <p style="margin-top:0.5rem;">signal repeating pattern: <span class="text-warning">NON-RANDOM</span></p>
+                <p style="margin-top:0.5rem;">Entity classification: <span class="text-caution">UNKNOWN — aCTIVE</span></p>
+                <p style="margin-top:0.5rem;">PPRC clearance level required: <span class="text-terminal">LEVEL-5 / DELTA</span></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== sUCCEss OVERLAY ===================== -->
+      <div class="auth-success-overlay hidden" id="auth-success-overlay" role="status" aria-live="assertive" aria-label="Authentication successful">
+        <div class="auth-success-inner">
+          <div class="auth-success-terminal terminal noise-overlay">
+            <div class="terminal-header">
+              <div class="terminal-header-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title">aCCEss GRANTED — PPRC TERMINAL</span>
+            </div>
+            <div class="terminal-body" id="auth-success-body">
+              <!-- filled by Js -->
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg" id="enter-investigation-btn" style="margin-top:2rem;" aria-label="Enter the investigation">
+            &#11041; ENTER THE INVEsTIGATION
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer injected by PabnaComponents.buildFooter -->
+
+  </div><!-- end .page-wrapper -->
+
+  <!-- scripts - ExaCt load order -->
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/telegraph.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/gateway.js"></script>
+</body>
+</html>
+
+

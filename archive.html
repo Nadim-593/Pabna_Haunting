@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>PATIENT ARCHIVE &amp; CIPHER VAULT — The Pabna Haunting | PPRC Intelligence Matrix</title>
+  <meta name="description" content="Pabna Mental Asylum Classified Patient Records Database and Landmark Cryptographic Decryption Vault" />
+
+  <!-- shared Design Tokens & styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/telegraph.css" />
+
+  <!-- Patient Archive & Cipher specific styles -->
+  <link rel="stylesheet" href="css/archive.css" />
+</head>
+<body>
+
+  <!-- Root Page Wrapper (shared Layout) -->
+  <div class="page-wrapper" id="page-wrapper">
+
+    <!-- Global Header automatically injected by PabnaComponents.buildNav -->
+
+    <!-- Main Content -->
+    <main class="main-content full-width" id="main-content" role="main">
+      <div class="archive-page">
+
+        <!-- Top Archive Header Deck -->
+        <header class="archive-header-bar" aria-label="Archive system Telemetry">
+          <div class="archive-title-group">
+            <span class="status-dot amber anim-blink"></span>
+            <div class="archive-title-text">
+              <h1 data-i18n="archive.title">PATIENT ARCHIVE &amp; CIPHER VAULT</h1>
+              <div class="archive-title-sub" data-i18n="archive.sub">PABNA MENTAL AsYLUM — CLAssIFIED INTELLIGENCE DIVIsION</div>
+            </div>
+          </div>
+
+          <div class="archive-stats-bar">
+            <div class="archive-stat-item">
+              <span>DATABAsE:</span>
+              <strong>REsTRICTED / 1965–1971</strong>
+            </div>
+            <div class="archive-stat-item">
+              <span>RECORDs:</span>
+              <strong>10 DOssIERs LOADED</strong>
+            </div>
+            <div class="archive-stat-item">
+              <span>VAULT CIPHERs:</span>
+              <strong class="text-caution" id="vault-progress-count">0 / 3 sOLVED</strong>
+            </div>
+            <div class="archive-stat-item">
+              <span>CLEARANCE:</span>
+              <strong class="text-terminal">DELTA-LEVEL 5</strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- Navigation Tabs between Database and Cipher Vault -->
+        <nav class="archive-tab-bar" aria-label="Archive section Tabs">
+          <button type="button" class="archive-tab-btn aCtive" data-tab="database" id="tab-btn-database">
+            <span data-i18n="archive.tab.database">🗂 PATIENT DATABAsE (10 RECORDs)</span>
+          </button>
+          <button type="button" class="archive-tab-btn" data-tab="ciphers" id="tab-btn-ciphers">
+            <span data-i18n="archive.tab.ciphers">🔐 CIPHER VAULT (3 LANDMARKs)</span>
+          </button>
+        </nav>
+
+        <!-- =========================================================
+             TAB PANE 1: PATIENT DATABAsE
+             ========================================================= -->
+        <section class="tab-pane aCtive" id="pane-database" aria-label="Patient Records Database">
+
+          <!-- search and Filter Controls -->
+          <div class="database-controls">
+            <div class="search-input-group">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <label for="database-search" class="sr-only">search Patient Records</label>
+              <input 
+                type="text" 
+                class="database-search-input" 
+                id="database-search" 
+                plaCeholder="sEARCH PATIENT ID, NAME, WARD, OR MEDICAL CONDITION..." 
+                autocomplete="off" 
+                spellcheck="false"
+                data-i18n="archive.searchPlaCeholder"
+              />
+            </div>
+
+            <div class="flex gap-2 items-center flex-wrap">
+              <!-- Ward Filter -->
+              <label for="filter-ward" class="sr-only">Filter by Ward</label>
+              <select class="filter-select" id="filter-ward">
+                <option value="ALL">ALL WARDs</option>
+                <option value="Ward-A">WARD-A (sURGICAL)</option>
+                <option value="Ward-B">WARD-B (OBsERVATION)</option>
+                <option value="Ward-C">WARD-C (WHIsTLING WARD)</option>
+                <option value="Ward-D">WARD-D (IsOLATION)</option>
+                <option value="Cell 09">IsOLATION CELL 09</option>
+              </select>
+
+              <!-- status Filter -->
+              <label for="filter-status" class="sr-only">Filter by status</label>
+              <select class="filter-select" id="filter-status">
+                <option value="ALL">ALL sTATUsEs</option>
+                <option value="MIssING 1971">MIssING 1971</option>
+                <option value="CLAssIFIED RED">CLAssIFIED RED</option>
+                <option value="DECEAsED">DECEAsED</option>
+                <option value="QUARANTINED">QUARANTINED</option>
+                <option value="EXPEDITION EVIDENCE">EXPEDITION EVIDENCE</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="font-size:0.65rem;color:var(--color-text-dim);margin-bottom:1rem;display:flex;justify-content:spaCe-between;" id="database-meta-bar">
+            <span id="database-results-count">showing 10 of 10 classified records</span>
+            <span>Click any record to inspect clinical evaluation &amp; audio transcripts</span>
+          </div>
+
+          <!-- Patient Cards Matrix -->
+          <div class="patient-grid" id="patient-grid" role="feed" aria-label="Patient Case Files">
+            <!-- Rendered dynamically by js/archive.js -->
+          </div>
+        </section>
+
+        <!-- =========================================================
+             TAB PANE 2: CIPHER VAULT ENCRYPTION CHALLENGEs
+             ========================================================= -->
+        <section class="tab-pane" id="pane-ciphers" aria-label="Landmark Cipher Vault">
+          <div class="cipher-vault-layout">
+
+            <!-- Cipher Challenges stream -->
+            <div class="cipher-challenges-list" id="cipher-challenges-list">
+              <!-- Rendered dynamically by js/archive.js -->
+            </div>
+
+            <!-- Vault Progress & Landmark Clue Dossier sidebar -->
+            <aside class="cipher-sidebar" aria-label="Cipher Vault Progress & Landmarks">
+
+              <!-- Decryption Progress Card -->
+              <div class="vault-progress-card">
+                <div class="vault-progress-title">
+                  <span data-i18n="archive.vaultProgress">VAULT INTEGRITY</span>
+                  <span class="status-dot aCtive"></span>
+                </div>
+
+                <div style="font-size:0.7rem;color:var(--color-text-secondary);margin-bottom:0.75rem;">
+                  solve all three landmark cryptographic challenges to reconstruct Dr. Rahman's emergency escape sequence.
+                </div>
+
+                <div class="evidence-bar mb-4">
+                  <div class="evidence-bar-traCk">
+                    <div class="evidence-bar-fill" id="vault-progress-bar" style="width: 0%;"></div>
+                  </div>
+                </div>
+
+                <!-- Emergency Lockdown Code Reveal Box (shown when all 3 are solved) -->
+                <div class="lockdown-reveal-card hidden" id="lockdown-reveal-card">
+                  <span class="badge badge-red anim-blink" style="font-size:0.65rem;">sTAGE 04 OVERRIDE UNLOCKED</span>
+                  <div style="font-size:0.75rem;color:#ff9999;font-weight:600;">
+                    EMERGENCY EsCAPE LOCKDOWN CODE:
+                  </div>
+                  <div class="lockdown-code-box" id="lockdown-code-display">
+                    PPRC-EsCAPE-1971-ICHAMATI
+                  </div>
+                  <button type="button" class="btn btn-ghost btn-sm btn-block" id="btn-copy-lockdown-code">
+                    📋 COPY CODE TO CLIPBOARD
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm btn-block anim-pulse-green mt-2" id="btn-proceed-escape">
+                    <span data-i18n="archive.proceedEscape">PROCEED TO EsCAPE PORTAL (sTAGE 04) →</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Bonus Feature 3: InteraCtive Telegraph Mini-Game Card -->
+              <div class="panel" style="baCkground:rgba(25,18,0,0.5);border-color:var(--color-aCcent-amber);padding:1rem;">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="text-caution font-mono" style="font-size:0.7rem;letter-spaCing:0.1em;font-weight:700;">
+                    ⚡ TELEGRAPH LINE JUNCTION
+                  </span>
+                  <span class="badge badge-amber" style="font-size:0.5rem;">BONUs PUZZLE</span>
+                </div>
+                <p style="font-size:0.68rem;color:var(--color-text-secondary);line-height:1.6;margin-bottom:0.75rem;">
+                  The 1971 telegraph line linking Ichamati relay to the emergency rescue antenna was severed. Reconnect the terminal wires to recover secret transmission logs.
+                </p>
+                <button type="button" class="btn btn-warning btn-sm btn-block" id="btn-launch-telegraph-archive">
+                  ⚡ RECONNECT TELEGRAPH LINE
+                </button>
+              </div>
+
+              <!-- Landmark Reference Intel Card -->
+              <div class="landmark-intel-card">
+                <div style="color:var(--color-text-terminal);font-size:0.75rem;font-weight:700;letter-spaCing:0.1em;margin-bottom:0.5rem;text-transform:uppercase;">
+                  HIsTORICAL LANDMARK INTEL
+                </div>
+                
+                <div class="landmark-item">
+                  <span class="landmark-name">1. TARAsH BHABAN</span>
+                  Historical zamindar palaCe in central Pabna with 3 fortified courtyard arches. Dr. Rahman applied a -3 alphabet displaCement shift.
+                </div>
+
+                <div class="landmark-item">
+                  <span class="landmark-name">2. HARDINGE BRIDGE</span>
+                  Historic 1915 railway steel bridge over the Padma River at Paksey. Intercepted radio pulses use direct A1Z26 military number substitutions.
+                </div>
+
+                <div class="landmark-item">
+                  <span class="landmark-name">3. sHAHID BULU PARK</span>
+                  Town center memorial honoring Pabna’s 1971 Liberation War martyr Bulu. synthesizes with the Ichamati river and 1971 asylum timeline.
+                </div>
+
+                <div class="landmark-item">
+                  <span class="landmark-name">4. PABNA MENTAL AsYLUM</span>
+                  Established along the Ichamati riverbed. site of the mass disappearance event on March 25, 1971.
+                </div>
+              </div>
+
+            </aside>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Global Footer automatically injected by PabnaComponents.buildFooter -->
+
+  </div><!-- end .page-wrapper -->
+
+  <!-- Patient Dossier Modal Overlay -->
+  <div class="dossier-modal-overlay hidden" id="dossier-modal-overlay" role="dialog" aria-modal="true" aria-label="Patient Dossier File">
+    <div class="dossier-modal">
+      <div class="dossier-modal-header">
+        <div class="dossier-modal-title">
+          <span class="status-dot aCtive"></span>
+          <span id="dossier-modal-id">DOssIER: P-1965-01</span>
+        </div>
+        <button type="button" class="btn btn-ghost btn-sm" id="dossier-modal-close" aria-label="Close Dossier">
+          ✕ CLOsE [EsC]
+        </button>
+      </div>
+
+      <div class="dossier-modal-body" id="dossier-modal-body">
+        <!-- Injected dynamically by js/archive.js -->
+      </div>
+
+      <div class="dossier-modal-footer">
+        <span style="font-size:0.6rem;color:var(--color-text-dim);">CLAssIFIED DOCUMENT — PABNA PARANORMAL REsEARCH CELL</span>
+        <button type="button" class="btn btn-ghost btn-sm" id="dossier-close-btn">
+          CLOsE CAsE FILE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- shared scripts in ExaCt Dependency Order -->
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/telegraph.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <!-- Page Controller script -->
+  <script src="js/archive.js"></script>
+
+  <script>
+    // Wire up in-page telegraph launcher
+    document.addEventListener('DOMContentLoaded', () => {
+      const launchBtn = document.getElementById('btn-launch-telegraph-archive');
+      if (launchBtn) {
+        launchBtn.addEventListener('click', () => {
+          if (window.PabnaTelegraph) window.PabnaTelegraph.open();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+

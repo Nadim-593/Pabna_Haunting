@@ -1,0 +1,775 @@
+/* =========================================================
+   THE PABNA HAUNTING — Patient Archive & Cipher Vault Styles
+   ========================================================= */
+
+.archive-page {
+  padding: calc(var(--header-height) + var(--space-4)) var(--space-4) var(--space-8);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header Deck */
+.archive-header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-panel);
+}
+
+.archive-title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.archive-title-text h1 {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  color: var(--color-text-terminal);
+  letter-spacing: 0.15em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.archive-title-sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+}
+
+.archive-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  font-size: var(--font-size-xs);
+}
+
+.archive-stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.archive-stat-item strong {
+  color: var(--color-text-terminal);
+  font-weight: 600;
+}
+
+/* Section Navigation Tabs */
+.archive-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-panel);
+  padding-bottom: var(--space-2);
+}
+
+.archive-tab-btn {
+  background: rgba(10, 16, 10, 0.8);
+  border: 1px solid var(--color-border-panel);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.archive-tab-btn:hover {
+  color: var(--color-text-terminal);
+  border-color: var(--color-border-terminal);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.archive-tab-btn.active {
+  background: rgba(0, 255, 65, 0.12);
+  color: var(--color-text-terminal);
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+/* Tab Content Panes */
+.tab-pane {
+  display: none;
+  animation: fadeInFromDark 0.4s ease forwards;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* =========================================================
+   TAB 1: PATIENT ARCHIVE DATABASE
+   ========================================================= */
+
+.database-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background: rgba(12, 16, 12, 0.95);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 280px;
+}
+
+.search-icon {
+  color: var(--color-text-terminal);
+  font-size: var(--font-size-md);
+}
+
+.database-search-input {
+  width: 100%;
+  background: rgba(0, 10, 0, 0.85);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-terminal);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-4);
+  letter-spacing: 0.08em;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.database-search-input:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.25);
+}
+
+.filter-select {
+  background: rgba(0, 10, 0, 0.85);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-terminal);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  padding: var(--space-2) var(--space-3);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+}
+
+/* Patient Records Grid */
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .patient-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Patient Record Card */
+.patient-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-panel);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.patient-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-terminal);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 255, 65, 0.15);
+}
+
+.patient-card:focus-visible {
+  outline: 1px solid var(--color-accent-green);
+  border-color: var(--color-accent-green);
+}
+
+.patient-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+  padding-bottom: var(--space-2);
+}
+
+.patient-id {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-text-terminal);
+  letter-spacing: 0.1em;
+  font-size: var(--font-size-sm);
+}
+
+.patient-name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  color: var(--color-text-white);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.05em;
+}
+
+.patient-meta-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--space-3);
+  background: rgba(0, 15, 0, 0.4);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(0, 255, 65, 0.08);
+}
+
+.patient-meta-label {
+  color: var(--color-text-dim);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.patient-meta-val {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.patient-diag {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-caution);
+  margin-bottom: var(--space-3);
+  line-height: 1.5;
+}
+
+.patient-excerpt {
+  font-size: 0.68rem;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.patient-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-panel);
+  padding-top: var(--space-2);
+  margin-top: auto;
+}
+
+/* Classified Stamp on Card */
+.stamp-classified {
+  font-size: 0.55rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--color-accent-red);
+  color: var(--color-text-warning);
+  padding: 1px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  background: rgba(200, 0, 0, 0.1);
+}
+
+/* Empty State */
+.empty-database-notice {
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+  color: var(--color-text-dim);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-panel);
+  border: 1px dashed var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+}
+
+/* =========================================================
+   PATIENT DOSSIER MODAL
+   ========================================================= */
+
+.dossier-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeInFromDark 0.3s ease forwards;
+}
+
+.dossier-modal {
+  background: #0d120d;
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-base);
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-panel), 0 0 50px rgba(0, 255, 65, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.dossier-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  background: rgba(10, 20, 10, 0.98);
+  border-bottom: 1px solid var(--color-border-terminal);
+}
+
+.dossier-modal-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.15em;
+  color: var(--color-text-terminal);
+  text-transform: uppercase;
+}
+
+.dossier-modal-body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+
+.dossier-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--color-border-terminal);
+}
+
+.dossier-name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-white);
+  margin-bottom: var(--space-1);
+}
+
+.dossier-grid-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  background: rgba(0, 20, 0, 0.4);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-xs);
+}
+
+.dossier-notes-box {
+  background: #070a07;
+  border-left: 3px solid var(--color-accent-green);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-sm);
+  line-height: 1.9;
+  color: var(--color-text-secondary);
+}
+
+.dossier-transcript-box {
+  background: rgba(20, 0, 0, 0.4);
+  border: 1px solid var(--color-border-warning);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.transcript-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-warning);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+}
+
+.transcript-text {
+  font-size: var(--font-size-xs);
+  color: #ff9999;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.dossier-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-6);
+  background: rgba(10, 20, 10, 0.98);
+  border-top: 1px solid var(--color-border-terminal);
+}
+
+/* =========================================================
+   TAB 2: CIPHER VAULT ENCRYPTION CHALLENGES
+   ========================================================= */
+
+.cipher-vault-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .cipher-vault-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cipher Challenges Container */
+.cipher-challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Individual Cipher Challenge Card */
+.cipher-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-panel);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base);
+}
+
+.cipher-card.active-challenge {
+  border-color: var(--color-border-terminal);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.1);
+}
+
+.cipher-card.solved-challenge {
+  border-color: var(--color-accent-green);
+  background: rgba(8, 20, 8, 0.85);
+}
+
+.cipher-card.locked-challenge {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.cipher-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-panel);
+}
+
+.cipher-num-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  color: var(--color-text-terminal);
+  text-transform: uppercase;
+}
+
+.cipher-landmark-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-caution);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cipher-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-white);
+  margin-bottom: var(--space-2);
+}
+
+.cipher-lore {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+
+/* Ciphertext Display Box */
+.ciphertext-display {
+  background: #040804;
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  position: relative;
+}
+
+.ciphertext-label {
+  font-size: 0.58rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.ciphertext-value {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-terminal);
+  font-weight: 700;
+  word-break: break-all;
+  user-select: all;
+}
+
+.cipher-card.solved-challenge .ciphertext-value {
+  color: var(--color-text-terminal-dim);
+  text-decoration: line-through;
+}
+
+/* Decrypted Cleartext Display (Shown when solved) */
+.cleartext-display {
+  background: rgba(0, 40, 0, 0.4);
+  border: 1px solid var(--color-accent-green);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fadeInFromDark 0.3s ease;
+}
+
+.cleartext-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  color: var(--color-accent-green);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* Cipher Interactive Form */
+.cipher-form {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  .cipher-form {
+    flex-direction: column;
+  }
+}
+
+.cipher-input {
+  flex: 1;
+  background: rgba(0, 15, 0, 0.9);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-terminal);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  padding: var(--space-3) var(--space-4);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cipher-input:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.cipher-input.error {
+  border-color: var(--color-accent-red);
+  box-shadow: 0 0 10px rgba(255, 34, 34, 0.4);
+  animation: shake 0.4s ease;
+}
+
+/* Cipher Hint Accordion / Controls */
+.cipher-hint-container {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-panel);
+}
+
+.cipher-hint-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast);
+}
+
+.cipher-hint-toggle:hover {
+  color: var(--color-text-caution);
+}
+
+.cipher-hint-content {
+  background: rgba(30, 20, 0, 0.4);
+  border-left: 2px solid var(--color-accent-amber);
+  padding: var(--space-3);
+  margin-top: var(--space-2);
+  font-size: 0.7rem;
+  color: var(--color-text-caution);
+  line-height: 1.6;
+}
+
+/* Feedback message */
+.cipher-feedback {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.05em;
+  margin-top: var(--space-2);
+  min-height: 1.2em;
+}
+
+.cipher-feedback.success {
+  color: var(--color-accent-green);
+  animation: fadeInFromDark 0.3s ease;
+}
+
+.cipher-feedback.error {
+  color: var(--color-text-warning);
+  animation: fadeInFromDark 0.3s ease;
+}
+
+/* Cipher Vault Telemetry Sidebar */
+.cipher-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.vault-progress-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-panel);
+}
+
+.vault-progress-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-panel);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  color: var(--color-text-terminal);
+  text-transform: uppercase;
+}
+
+/* Final Lockdown Sequence Card */
+.lockdown-reveal-card {
+  background: rgba(30, 0, 0, 0.8);
+  border: 1px solid var(--color-accent-red);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-6);
+  text-align: center;
+  animation: pulseWarning 2s infinite;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.lockdown-code-box {
+  background: #000;
+  border: 2px dashed var(--color-accent-red-bright);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 10px #ff0000;
+  user-select: all;
+  margin: var(--space-2) 0;
+}
+
+/* Landmark Intel Reference Card */
+.landmark-intel-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-4);
+  font-size: 0.68rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.landmark-item {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.landmark-item:last-child {
+  border-bottom: none;
+}
+
+.landmark-name {
+  color: var(--color-text-terminal);
+  font-weight: 600;
+  display: block;
+}

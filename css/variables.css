@@ -1,0 +1,81 @@
+:root {
+  /* Color Palette */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #0d0d0d;
+  --color-bg-panel: #111111;
+  --color-bg-terminal: #0a0f0a;
+  --color-bg-glass: rgba(10, 15, 10, 0.85);
+  
+  --color-text-primary: #c8d8c8;
+  --color-text-secondary: #7a9a7a;
+  --color-text-dim: #4a6a4a;
+  --color-text-terminal: #00ff41;
+  --color-text-terminal-dim: #00aa2a;
+  --color-text-warning: #ff3333;
+  --color-text-caution: #ffaa00;
+  --color-text-white: #e8e8e8;
+  
+  --color-accent-red: #cc0000;
+  --color-accent-red-bright: #ff2222;
+  --color-accent-red-dim: #660000;
+  --color-accent-green: #00ff41;
+  --color-accent-green-dim: #003310;
+  --color-accent-amber: #ffaa00;
+  --color-accent-amber-dim: #3a2500;
+  
+  --color-border-terminal: #1a3a1a;
+  --color-border-panel: #1f1f1f;
+  --color-border-warning: #440000;
+  --color-border-active: #00ff41;
+  
+  /* Typography */
+  --font-mono: 'Courier New', 'Lucida Console', monospace;
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  
+  --font-size-xs: 0.65rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.75rem;
+  --font-size-4xl: 3.5rem;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  
+  /* Effects */
+  --glow-green: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3), 0 0 40px rgba(0, 255, 65, 0.1);
+  --glow-red: 0 0 10px rgba(255, 34, 34, 0.5), 0 0 20px rgba(255, 34, 34, 0.3), 0 0 40px rgba(255, 34, 34, 0.1);
+  --glow-amber: 0 0 10px rgba(255, 170, 0, 0.5), 0 0 20px rgba(255, 170, 0, 0.3);
+  
+  --shadow-panel: 0 4px 24px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+  --shadow-terminal: inset 0 0 60px rgba(0,0,0,0.5);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  
+  /* Layout */
+  --max-width: 1280px;
+  --header-height: 60px;
+  --border-radius-sm: 2px;
+  --border-radius-base: 4px;
+  --border-radius-lg: 8px;
+  
+  /* CRT Effects */
+  --scanline-opacity: 0.03;
+  --noise-opacity: 0.02;
+  --vignette-strength: 0.6;
+}

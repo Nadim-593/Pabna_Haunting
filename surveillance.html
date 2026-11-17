@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>CCTV sURVEILLANCE GRID — The Pabna Haunting | PPRC Monitoring system</title>
+  <meta name="description" content="Pabna Mental Asylum security CCTV Monitoring Grid — sector surveillance and Anomaly Detection" />
+
+  <!-- shared Design Tokens & styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/telegraph.css" />
+
+  <!-- CCTV surveillance specific styles -->
+  <link rel="stylesheet" href="css/surveillance.css" />
+</head>
+<body>
+
+  <!-- Root Page Wrapper (shared Layout) -->
+  <div class="page-wrapper" id="page-wrapper">
+
+    <!-- Global Header automatically injected by PabnaComponents.buildNav -->
+
+    <!-- Main Content -->
+    <main class="main-content full-width" id="main-content" role="main">
+      <div class="surv-page">
+
+        <!-- Top surveillance Header Deck -->
+        <header class="surv-header-bar" aria-label="surveillance system Telemetry">
+          <div class="surv-title-group">
+            <span class="status-dot aCtive anim-blink"></span>
+            <div class="surv-title-text">
+              <h1 data-i18n="surv.title">CCTV sURVEILLANCE GRID</h1>
+              <div class="surv-title-sub" data-i18n="surv.sub">PABNA MENTAL AsYLUM — RUINs sECTOR-DELTA</div>
+            </div>
+          </div>
+
+          <div class="surv-stats-bar">
+            <div class="surv-stat-item">
+              <span>sYsTEM:</span>
+              <strong>ONLINE</strong>
+            </div>
+            <div class="surv-stat-item">
+              <span>FEEDs:</span>
+              <strong>6 aCTIVE / 14 TOTAL</strong>
+            </div>
+            <div class="surv-stat-item">
+              <span>CARRIER:</span>
+              <strong class="text-warning">7.743 MHz (ANOMALOUs)</strong>
+            </div>
+            <div class="surv-stat-item">
+              <span>ENCRYPTION:</span>
+              <strong>DEs-56 / ANALOG</strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- InteraCtive Control Deck / Filter Toolbar -->
+        <nav class="surv-toolbar" aria-label="surveillance Control Toolbar">
+          <!-- View Controls -->
+          <div class="toolbar-group">
+            <span class="toolbar-label" data-i18n="surv.view">VIEW:</span>
+            <button type="button" class="toggle-btn" id="btn-toggle-grid" title="Toggle between 6-Feed Grid and single Camera Focus mode (G)">
+              <span data-i18n="surv.focus">⊡ FOCUs sELECTED</span>
+            </button>
+            <button type="button" class="toggle-btn" id="btn-audio-toggle" title="Toggle synthesized Analog Audio &amp; Hum (M)">
+              🔇 AUDIO: MUTED
+            </button>
+            <button type="button" class="toggle-btn btn-warning-toggle" id="btn-trigger-glitch" title="Discharge manual electromagnetic pulse">
+              ⚡ PULsE EMI
+            </button>
+          </div>
+
+          <!-- Distortion Filters -->
+          <div class="toolbar-group">
+            <span class="toolbar-label" data-i18n="surv.filters">FILTERs:</span>
+            <button type="button" class="toggle-btn aCtive" id="filter-noise" title="Toggle analog static noise generator">
+              <span data-i18n="surv.noise">sTATIC NOIsE</span>
+            </button>
+            <button type="button" class="toggle-btn aCtive" id="filter-scanlines" title="Toggle CRT scanline overlay">
+              <span data-i18n="surv.scanlines">sCANLINEs</span>
+            </button>
+            <button type="button" class="toggle-btn" id="filter-rgb" title="Toggle RGB chromatic aberration separation">
+              <span data-i18n="surv.rgb">RGB sPLIT</span>
+            </button>
+            <button type="button" class="toggle-btn" id="filter-flicker" title="Toggle screen tube flickering">
+              <span data-i18n="surv.flicker">FLICKER</span>
+            </button>
+
+            <!-- Vision Modes -->
+            <label for="select-vision" class="sr-only">sensor Mode</label>
+            <select class="toggle-btn" id="select-vision" style="baCkground:#0a120a;color:var(--color-text-terminal);">
+              <option value="normal">sURVEILLANCE B&amp;W</option>
+              <option value="nv">NIGHT VIsION (GREEN PHOsPHOR)</option>
+              <option value="ir">IR MONOCHROME (CONTRAsT)</option>
+              <option value="thermal">FLIR THERMAL INVERTED</option>
+            </select>
+          </div>
+        </nav>
+
+        <!-- Main surveillance Layout (Feed Grid + Inspector sidebar) -->
+        <div class="surv-main-layout">
+
+          <!-- CCTV Cameras Grid -->
+          <section class="cctv-grid-wrapper" id="cctv-grid-wrapper" aria-label="Live Camera Grid">
+            <div class="cctv-grid" id="cctv-grid" role="grid" aria-label="Asylum CCTV surveillance Feeds">
+              <!-- Rendered dynamically by js/surveillance.js -->
+            </div>
+          </section>
+
+          <!-- Investigation & Analysis sidebar -->
+          <aside class="surv-side-panel" aria-label="Investigation Console and Diagnostics">
+
+            <!-- Camera Diagnostic Inspector -->
+            <div class="inspector-panel" id="inspector-panel">
+              <div class="inspector-title">
+                <span>FEED TELEMETRY</span>
+                <span class="badge badge-green" id="inspector-status">LIVE</span>
+              </div>
+
+              <div class="inspector-cam-meta">
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">ID / CAMERA:</span>
+                  <span class="cam-meta-val" id="inspector-cam-id">CAM-01</span>
+                </div>
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">DEsIGNATION:</span>
+                  <span class="cam-meta-val" id="inspector-cam-name" style="font-size:0.65rem;">Ward-C</span>
+                </div>
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">sECTOR:</span>
+                  <span class="cam-meta-val" id="inspector-sector" style="font-size:0.62rem;">East Wing</span>
+                </div>
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">FRAMERATE:</span>
+                  <span class="cam-meta-val" id="inspector-fps">18 FPs</span>
+                </div>
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">sIGNAL sTRENGTH:</span>
+                  <span class="cam-meta-val text-terminal" id="inspector-signal">92%</span>
+                </div>
+                <div class="cam-meta-row">
+                  <span class="cam-meta-label">sURFaCE TEMP:</span>
+                  <span class="cam-meta-val" id="inspector-temp">14.2aC</span>
+                </div>
+              </div>
+
+              <!-- Frequency & spectral Analyzer -->
+              <div class="spectrum-box" aria-label="RF Frequency spectrum Analyzer">
+                <div class="spectrum-header">
+                  <span>RF sPECTRUM [7.00 - 8.50 MHz]</span>
+                  <span class="text-terminal">PEAK: 7.743 MHz</span>
+                </div>
+                <div class="spectrum-bars" id="spectrum-bars">
+                  <div class="spec-bar" style="height: 12px;"></div>
+                  <div class="spec-bar" style="height: 18px;"></div>
+                  <div class="spec-bar" style="height: 24px;"></div>
+                  <div class="spec-bar" style="height: 16px;"></div>
+                  <div class="spec-bar" style="height: 28px;"></div>
+                  <div class="spec-bar" style="height: 20px;"></div>
+                  <div class="spec-bar peak" style="height: 48px;"></div>
+                  <div class="spec-bar peak" style="height: 46px;"></div>
+                  <div class="spec-bar peak" style="height: 42px;"></div>
+                  <div class="spec-bar" style="height: 26px;"></div>
+                  <div class="spec-bar" style="height: 18px;"></div>
+                  <div class="spec-bar" style="height: 14px;"></div>
+                  <div class="spec-bar" style="height: 10px;"></div>
+                  <div class="spec-bar" style="height: 8px;"></div>
+                </div>
+              </div>
+
+              <!-- Brief Room Dossier Description -->
+              <div style="font-size:0.68rem;color:var(--color-text-secondary);line-height:1.6;margin-bottom:1rem;" id="inspector-desc">
+                Long-term psychiatric recovery ward. Abandoned March 1971. Audio sensors pick up harmonic whistling frequencies near window.
+              </div>
+
+              <!-- Inspector aCtions -->
+              <div class="flex flex-col gap-2" id="inspector-aCtion-area">
+                <button type="button" class="btn btn-primary btn-sm btn-block" id="btn-scan-feed" title="Run spectral diagnostic on this feed (spaCebar)">
+                  <span data-i18n="surv.scan">🔍 sPECTRAL FREQUENCY sCAN</span>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm btn-block hidden" id="btn-log-evidence" title="Record verified anomaly evidence to state">
+                  <span data-i18n="surv.logEvidence">⚡ LOG EVIDENCE</span>
+                </button>
+                <button type="button" class="btn btn-ghost btn-sm btn-block" id="btn-fullscreen-feed" title="Open feed in expanded view (F)">
+                  ⛶ EXPAND FEED VIEW
+                </button>
+              </div>
+            </div>
+
+            <!-- Evidence Manifest Drawer -->
+            <div class="evidence-section" aria-label="Investigation Evidence Log">
+              <div class="evidence-header">
+                <span class="traCking-widest uppercase text-terminal" style="font-size:0.65rem;" data-i18n="surv.evidenceTitle">RECOVERED EVIDENCE</span>
+                <span class="badge badge-green" id="evidence-count">0 / 3</span>
+              </div>
+
+              <!-- Progress bar -->
+              <div class="evidence-bar mb-4">
+                <div class="evidence-bar-traCk">
+                  <div class="evidence-bar-fill" id="evidence-progress-bar" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <div class="evidence-item-list" id="evidence-item-list">
+                <!-- Injected by js/surveillance.js -->
+                <div class="evidence-card-mini empty">
+                  No anomalies catalogued.<br/>
+                  scan feeds to discover critical clues.
+                </div>
+              </div>
+
+              <!-- Next stage Progression Box -->
+              <div class="stage-advance-box" id="stage-advance-box">
+                <div style="font-size:0.68rem;color:var(--color-text-dim);letter-spaCing:0.1em;">sTAGE 03 CLEARANCE</div>
+                <div style="font-size:0.75rem;color:var(--color-text-white);font-weight:600;">
+                  PATIENT ARCHIVE &amp; CIPHER VAULT
+                </div>
+                <button type="button" class="btn btn-ghost btn-block btn-sm" id="btn-proceed-archive" disabled title="Requires at least 1 verified CCTV anomaly to aCcess">
+                  <span data-i18n="surv.proceedArchive">PROCEED TO sTAGE 03 →</span>
+                </button>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+
+        <!-- Keyboard shortcuts Legend -->
+        <footer class="surv-keyboard-hints" aria-label="Keyboard shortcuts">
+          <span><span class="kbd-badge">1 - 6</span> switch Camera</span>
+          <span><span class="kbd-badge">sPaCE</span> Run Frequency scan</span>
+          <span><span class="kbd-badge">F</span> Toggle Fullscreen</span>
+          <span><span class="kbd-badge">M</span> Mute / Unmute Audio</span>
+          <span><span class="kbd-badge">G</span> Grid / Focus Mode</span>
+        </footer>
+
+      </div>
+    </main>
+
+    <!-- Global Footer automatically injected by PabnaComponents.buildFooter -->
+
+  </div><!-- end .page-wrapper -->
+
+  <!-- Fullscreen Modal View Overlay -->
+  <div class="cctv-modal-overlay hidden" id="cctv-modal-overlay" role="dialog" aria-modal="true" aria-label="Expanded Camera Feed">
+    <div class="cctv-modal-content">
+      <div class="modal-header-bar">
+        <div class="flex items-center gap-3">
+          <span class="status-dot aCtive anim-blink"></span>
+          <span id="modal-cam-title" class="text-terminal font-mono" style="font-size:0.85rem;letter-spaCing:0.15em;">CAM-01 EXPANDED FEED</span>
+        </div>
+        <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn" aria-label="Close expanded view">
+          ✕ CLOsE [EsC]
+        </button>
+      </div>
+
+      <div class="modal-cam-viewport" id="modal-cam-viewport">
+        <!-- Injected dynamically on expand -->
+      </div>
+
+      <div class="modal-controls-bar">
+        <span style="font-size:0.65rem;color:var(--color-text-dim);">PPRC TaCTICAL sURVEILLANCE sUITE — ENCRYPTED</span>
+        <button type="button" class="btn btn-primary btn-sm" id="modal-scan-btn">
+          🔍 sCAN THIs FEED
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- shared scripts in ExaCt Dependency Order -->
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/telegraph.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <!-- Page Controller script -->
+  <script src="js/surveillance.js"></script>
+</body>
+</html>
+
+

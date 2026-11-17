@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>EMERGENCY EsCAPE PROTOCOL — The Pabna Haunting | PPRC Final stage</title>
+  <meta name="description" content="Pabna Mental Asylum Emergency Containment Lockdown and Rescue Broadcast station" />
+
+  <!-- shared Design Tokens & styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/telegraph.css" />
+
+  <!-- Emergency Escape specific styles -->
+  <link rel="stylesheet" href="css/escape.css" />
+</head>
+<body>
+
+  <!-- Ambient Emergency Warning strobe Overlay -->
+  <div class="escape-strobe-overlay" id="escape-strobe-overlay" aria-hidden="true"></div>
+
+  <!-- Root Page Wrapper (shared Layout) -->
+  <div class="page-wrapper" id="page-wrapper">
+
+    <!-- Global Header automatically injected by PabnaComponents.buildNav -->
+
+    <!-- Main Content -->
+    <main class="main-content full-width" id="main-content" role="main">
+      <div class="escape-page">
+
+        <!-- Critical Emergency Warning Header Banner -->
+        <header class="escape-warning-banner" role="alert" aria-live="assertive">
+          <div class="warning-banner-left">
+            <span class="warning-beaCon-icon" aria-hidden="true">s</span>
+            <div>
+              <div class="warning-banner-title" data-i18n="escape.banner.title">CRITICAL sYsTEM BREaCH — AsYLUM CONTAINMENT COLLAPsE</div>
+              <div class="warning-banner-sub" data-i18n="escape.banner.sub">
+                EMERGENCY BULKHEADs sEALING &bull; PARANORMAL FREQUENCY 7.743 MHz PEAKING &bull; BROADCAsT OVERRIDE REQUIRED
+              </div>
+            </div>
+          </div>
+
+          <div class="escape-quick-controls">
+            <!-- Audio Toggle -->
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-audio-toggle" title="Toggle synthesized Emergency Audio &amp; sirens">
+              🔊 AUDIO: aCTIVE
+            </button>
+            <!-- Developer speed-Test Controls -->
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-dev-10s" title="set countdown timer to 10 seconds for rapid failure testing" style="font-size:0.55rem;opaCity:0.6;">
+              [DEV: 10s]
+            </button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-dev-prefill" title="Pre-fill discovered lockdown override code for rapid victory testing" style="font-size:0.55rem;opaCity:0.6;">
+              [DEV: CODE]
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Emergency Dashboard Grid -->
+        <div class="escape-dashboard-grid">
+
+          <!-- Left Column: Countdown & Override Console -->
+          <div class="escape-primary-column">
+
+            <!-- Big Digital Countdown Clock Display -->
+            <section class="countdown-panel" aria-label="Lockdown Countdown Clock">
+              <div class="countdown-header-meta">
+                <span data-i18n="escape.clock.title">FaCILITY CONTAINMENT COLLAPsE CLOCK</span>
+                <span class="status-indicator">
+                  <span class="status-dot warning anim-blink"></span>
+                  <span class="text-warning">aCTIVE DRAINAGE</span>
+                </span>
+                <span>ICHAMATI FLOODGATE: ARMED</span>
+              </div>
+
+              <!-- Main Clock -->
+              <div class="countdown-digits" id="countdown-digits" role="timer" aria-live="polite">
+                03:00
+              </div>
+
+              <div class="countdown-sub-meta">
+                TIME REMAINING BEFORE TOTAL EVaCUATION BULKHEAD LOCKOUT
+              </div>
+
+              <!-- Power & Containment Drainage Bars -->
+              <div class="power-status-strip">
+                <div class="power-metric-box">
+                  <div class="power-metric-label">
+                    <span>AUXILIARY GENERATOR POWER</span>
+                    <span id="power-bar-val" style="color:var(--color-aCcent-green);font-weight:bold;">100%</span>
+                  </div>
+                  <div class="power-bar-traCk">
+                    <div class="power-bar-fill" id="power-bar-fill" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div class="power-metric-box">
+                  <div class="power-metric-label">
+                    <span>CONTAINMENT sHIELD INTEGRITY</span>
+                    <span id="containment-bar-val" style="color:var(--color-text-caution);font-weight:bold;">90%</span>
+                  </div>
+                  <div class="power-bar-traCk">
+                    <div class="power-bar-fill warning" id="containment-bar-fill" style="width: 90%;"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Final Puzzle: Emergency aCcess Override Console -->
+            <section class="override-console-panel" aria-label="Rescue Broadcast Console">
+              <div class="console-panel-header">
+                <div class="console-title">
+                  <span class="status-dot aCtive"></span>
+                  <span data-i18n="escape.console.title">TRANsMIssION OVERRIDE CONsOLE</span>
+                </div>
+                <div class="badge badge-red">
+                  FREQUENCY: 7.743 MHz
+                </div>
+              </div>
+
+              <p class="console-instructions" data-i18n="escape.console.desc">
+                Enter the classified <strong>Emergency Lockdown Override Code</strong> recovered from Dr. Rahman's 
+                Cipher Vault in stage 03. Once verified, the primary antenna array will broadcast the rescue beaCon 
+                aCross the Ichamati River and release faCility bulkheads.
+              </p>
+
+              <!-- Code Input Form -->
+              <form class="override-form" id="override-form" onsubmit="return false;">
+                <div class="code-input-wrap">
+                  <label for="override-input" class="sr-only">Emergency aCcess Code</label>
+                  <input 
+                    type="text" 
+                    class="override-input" 
+                    id="override-input" 
+                    plaCeholder="ENTER OVERRIDE aCCEss CODE..." 
+                    autocomplete="off" 
+                    spellcheck="false" 
+                    required 
+                    maxlength="35"
+                    data-i18n="escape.inputPlaCeholder"
+                    aria-describedby="override-feedbaCk"
+                  />
+                </div>
+
+                <div class="override-meta-strip">
+                  <span>
+                    <span data-i18n="escape.attempts">sECURITY LOCK ATTEMPTs:</span> <strong class="attempts-badge" id="attempts-count">3</strong> REMAINING
+                  </span>
+                  <span>FORMAT: ALPHANUMERIC CIPHER</span>
+                </div>
+
+                <button type="submit" class="btn btn-transmit" id="btn-transmit">
+                  <span data-i18n="escape.btn.transmit">⚡ TRANsMIT REsCUE BROADCAsT</span>
+                </button>
+              </form>
+
+              <!-- FeedbaCk Response Box -->
+              <div class="override-feedbaCk-box" id="override-feedbaCk" role="alert" aria-live="assertive"></div>
+
+              <!-- subtle Clue aCcordion -->
+              <div>
+                <button type="button" class="escape-hint-toggle" id="escape-hint-toggle">
+                  <span>▶</span> RETRIEVE ARCHIVE CLUE HINT
+                </button>
+                <div class="escape-hint-box hidden" id="escape-hint-box">
+                  <strong>INVEsTIGATION INTEL:</strong> The code was generated by synthesizing the three landmark challenges in stage 03: Tarash Bhaban, Hardinge Bridge (Paksey), and shahid Bulu Park. Check your notes for: <code>PPRC-EsCAPE-1971-ICHAMATI</code>.
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- Right Column: Debrief & FaCility status -->
+          <aside class="escape-sidebar" aria-label="Investigation status and FaCility Grid">
+
+            <!-- FaCility sector Breakdown -->
+            <div class="sector-status-panel">
+              <div class="flex justify-between items-center" style="font-size:0.75rem;letter-spaCing:0.1em;border-bottom:1px solid var(--color-border-panel);padding-bottom:6px;">
+                <span class="text-terminal uppercase font-mono">AsYLUM sECTORs</span>
+                <span class="badge badge-red anim-blink" style="font-size:0.55rem;">LOCKDOWN</span>
+              </div>
+
+              <div class="sector-list">
+                <div class="sector-item">
+                  <span class="sector-name">sECTOR-A (sURGICAL / WARD-A)</span>
+                  <span class="sector-status-pill badge-red">sEALED</span>
+                </div>
+                <div class="sector-item">
+                  <span class="sector-name">sECTOR-B (TRANsIT CORRIDOR)</span>
+                  <span class="sector-status-pill badge-red">FAILED</span>
+                </div>
+                <div class="sector-item">
+                  <span class="sector-name">sECTOR-C (WHIsTLING WARD)</span>
+                  <span class="sector-status-pill badge-red anim-blink">BREaCHED</span>
+                </div>
+                <div class="sector-item">
+                  <span class="sector-name">IsOLATION CELL 09 (VAULT)</span>
+                  <span class="sector-status-pill badge-amber">CRITICAL</span>
+                </div>
+                <div class="sector-item">
+                  <span class="sector-name">ICHAMATI FLOODGATE G-04</span>
+                  <span class="sector-status-pill badge-red">COLLAPsING</span>
+                </div>
+                <div class="sector-item">
+                  <span class="sector-name">MAIN ANTENNA RELAY (7.743 MHz)</span>
+                  <span class="sector-status-pill badge-green">sTANDBY</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Investigation Manifest summary -->
+            <div class="manifest-summary-panel">
+              <div class="flex justify-between items-center" style="font-size:0.75rem;letter-spaCing:0.1em;border-bottom:1px solid var(--color-border-terminal);padding-bottom:6px;margin-bottom:8px;">
+                <span class="text-terminal uppercase font-mono">MIssION MANIFEsT</span>
+                <span class="status-dot aCtive"></span>
+              </div>
+
+              <div class="manifest-item">
+                <span class="manifest-label">INVEsTIGATOR ID:</span>
+                <span class="manifest-value" id="manifest-agent-id">AGENT-DELTA-07</span>
+              </div>
+              <div class="manifest-item">
+                <span class="manifest-label">CCTV EVIDENCE LOGGED:</span>
+                <span class="manifest-value" id="manifest-evidence-count">3 / 3 LOGGED</span>
+              </div>
+              <div class="manifest-item">
+                <span class="manifest-label">ARCHIVE CIPHERs CRaCKED:</span>
+                <span class="manifest-value" id="manifest-ciphers-count">3 / 3 CRaCKED</span>
+              </div>
+              <div class="manifest-item">
+                <span class="manifest-label">THREAT LEVEL RATING:</span>
+                <span class="manifest-value text-warning" id="manifest-threat-level">LEVEL 4 / 10</span>
+              </div>
+              <div class="manifest-item">
+                <span class="manifest-label">TARGET FREQUENCY:</span>
+                <span class="manifest-value text-terminal">7.743 MHz</span>
+              </div>
+            </div>
+
+            <!-- PPRC Protocol Note -->
+            <div style="font-size:0.65rem;color:var(--color-text-dim);line-height:1.7;padding:0.75rem;baCkground:rgba(0,10,0,0.4);border:1px solid var(--color-border-panel);border-radius:4px;">
+              <strong style="color:var(--color-text-secondary);">PPRC OPERATIONAL MEMO:</strong> Once the broadcast transmission engages, all previous expeditions' recorded frequencies will be synchronized. Containment collapse cannot be aborted after countdown zero.
+            </div>
+
+          </aside>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Global Footer automatically injected by PabnaComponents.buildFooter -->
+
+  </div><!-- end .page-wrapper -->
+
+  <!-- =========================================================
+       MODAL 1: TRANsMIssION BROADCAsT ANIMATION
+       ========================================================= -->
+  <div class="transmission-modal-overlay hidden" id="transmission-modal-overlay" role="status" aria-live="assertive" aria-label="Rescue Broadcast Transmission">
+    <div class="transmission-modal">
+      <div class="badge badge-green anim-blink" style="font-size:0.7rem;margin-bottom:1rem;">BROADCAsT IN PROGREss</div>
+      <h2 style="font-family:var(--font-display);color:#fff;font-size:1.4rem;letter-spaCing:0.1em;margin-bottom:0.5rem;">
+        TRANsMITTING EMERGENCY DIsTREss BEaCON
+      </h2>
+      <div style="font-size:0.75rem;color:var(--color-text-secondary);letter-spaCing:0.15em;">
+        PABNA PARANORMAL REsEARCH CELL &bull; CARRIER FREQUENCY: 7.743 MHz
+      </div>
+
+      <div class="transmission-log-terminal" id="transmission-log-terminal">
+        <!-- Lines injected by js/escape.js typing engine -->
+      </div>
+
+      <div class="loading-bar-container" style="width:100%;margin-top:1rem;">
+        <div class="loading-bar-fill" style="width:100%;animation:pulseGreen 1s infinite;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 2: sUCCEssFUL REsCUE VICTORY sCREEN
+       ========================================================= -->
+  <div class="victory-modal-overlay hidden" id="victory-modal-overlay" role="dialog" aria-modal="true" aria-label="Mission successful screen">
+    <div class="victory-card">
+      <div class="victory-stamp" data-i18n="escape.victory.stamp">REsCUE sUCCEssFUL</div>
+      <h2 class="victory-headline" data-i18n="escape.victory.title">REsCUE BROADCAsT sUCCEssFUL.<br/>THE sIGNAL HAs BEEN CONTAINED.</h2>
+      <p class="victory-sub">
+        PPRC EMERGENCY EVaCUATION UNITs DIsPATCHED TO ICHAMATI RIVER EMBANKMENT
+      </p>
+
+      <div class="victory-debrief-grid">
+        <div>
+          <span class="debrief-stat-label">REsCUE TIME BUFFER:</span>
+          <div class="debrief-stat-val text-terminal" id="victory-time-remaining">01:42</div>
+        </div>
+        <div>
+          <span class="debrief-stat-label">EVIDENCE RECOVERED:</span>
+          <div class="debrief-stat-val" id="victory-evidence">3 / 3 DOssIERs</div>
+        </div>
+        <div>
+          <span class="debrief-stat-label">CONTAINMENT RATING:</span>
+          <div class="debrief-stat-val text-terminal" id="victory-efficiency">GRADE A (94%)</div>
+        </div>
+      </div>
+
+      <p style="font-size:0.75rem;color:var(--color-text-secondary);line-height:1.8;margin-bottom:1.5rem;">
+        The 7.743 MHz paranormal carrier signal originating from the Pabna Mental Asylum ruins has been 
+        successfully suppressed. All digital logs, surveillance footage, and patient records from 1965&ndash;1971 
+        have been securely archived to PPRC central servers. The fate of the 1971 disappearance is finally documented.
+      </p>
+
+      <div class="flex gap-4 justify-center flex-wrap">
+        <button type="button" class="btn btn-primary btn-lg" id="btn-restart-investigation" data-i18n="escape.victory.restart">
+          ↻ INITIATE NEW INVEsTIGATION
+        </button>
+        <a href="archive.html" class="btn btn-ghost btn-lg">
+          + REVIEW PATIENT ARCHIVE
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 3: FAILURE / JUMPsCARE COLLAPsE sCREEN
+       ========================================================= -->
+  <div class="failure-modal-overlay hidden" id="failure-modal-overlay" role="dialog" aria-modal="true" aria-label="Mission Failed screen">
+    <div class="failure-jumpscare-flash hidden" id="failure-jumpscare-flash" aria-hidden="true"></div>
+
+    <div class="failure-card">
+      <div class="failure-icon">☠</div>
+      <h2 class="failure-title" data-i18n="escape.failure.title">CONTAINMENT FAILED</h2>
+      <div class="failure-sub" data-i18n="escape.failure.sub">
+        CONNECTION TERMINATED &bull; THE ICHAMATI ENTITY HAs OVERRUN THE FaCILITY
+      </div>
+
+      <div class="failure-details-box">
+        <p><strong>MIssION REPORT: CRITICAL ABORT</strong></p>
+        <p style="margin-top:0.4rem;">
+          The emergency countdown reaChed zero before the rescue frequency could be modulated. 
+          Bulkheads in Block-C collapsed. The high-frequency whistling signal overwhelmed all digital 
+          telemetry. All communication with investigator terminal ∆7 has ceased.
+        </p>
+        <p style="margin-top:0.5rem;color:var(--color-aCcent-red-bright);">
+          FINAL TRANsMIssION: <em>"It knows we are watching."</em>
+        </p>
+      </div>
+
+      <div class="flex gap-4 justify-center flex-wrap">
+        <button type="button" class="btn btn-danger btn-lg" id="btn-retry-emergency" data-i18n="escape.failure.retry">
+          ↻ RETRY EMERGENCY OVERRIDE
+        </button>
+        <button type="button" class="btn btn-ghost btn-lg" id="btn-return-gateway">
+          RETURN TO GATEWAY HUB
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- shared scripts in ExaCt Dependency Order -->
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/telegraph.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <!-- Page Controller script -->
+  <script src="js/escape.js"></script>
+</body>
+</html>
+
+

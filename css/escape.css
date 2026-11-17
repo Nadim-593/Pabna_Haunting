@@ -1,0 +1,647 @@
+/* =========================================================
+   THE PABNA HAUNTING — Stage 04: Emergency Lockdown Styles
+   ========================================================= */
+
+.escape-page {
+  padding: calc(var(--header-height) + var(--space-4)) var(--space-4) var(--space-8);
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+/* Pulsing Red Emergency Strobe Overlay */
+.escape-strobe-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3000;
+  box-shadow: inset 0 0 80px rgba(200, 0, 0, 0.25);
+  animation: warningStrobe 2.5s infinite;
+}
+
+.escape-strobe-overlay.critical {
+  box-shadow: inset 0 0 120px rgba(255, 0, 0, 0.6);
+  animation: warningStrobe 1s infinite;
+}
+
+/* Emergency Header Warning Bar */
+.escape-warning-banner {
+  background: rgba(30, 0, 0, 0.95);
+  border: 1px solid var(--color-accent-red-bright);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  box-shadow: 0 0 20px rgba(255, 34, 34, 0.25);
+  animation: pulseWarning 2s infinite;
+}
+
+.warning-banner-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.warning-beacon-icon {
+  font-size: 1.8rem;
+  color: var(--color-text-warning);
+  animation: dotBlink 0.8s infinite;
+}
+
+.warning-banner-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.warning-banner-sub {
+  font-size: var(--font-size-xs);
+  color: #ff9999;
+  letter-spacing: 0.08em;
+}
+
+/* Audio & Developer Quick-Bar */
+.escape-quick-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Main Dashboard Grid */
+.escape-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .escape-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Column: Countdown & Override Interface */
+.escape-primary-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Big Digital Countdown Clock Display */
+.countdown-panel {
+  background: #030503;
+  border: 2px solid var(--color-accent-red);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-6);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 34, 34, 0.15);
+}
+
+.countdown-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 0, 0, 0.04) 3px,
+    rgba(255, 0, 0, 0.04) 6px
+  );
+  pointer-events: none;
+}
+
+.countdown-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+}
+
+.countdown-digits {
+  font-family: var(--font-mono);
+  font-size: clamp(3.2rem, 9vw, 5.8rem);
+  font-weight: 900;
+  color: var(--color-accent-red-bright);
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255, 34, 34, 0.8), 0 0 40px rgba(255, 34, 34, 0.4);
+  margin: var(--space-2) 0;
+  animation: textFlicker 6s infinite;
+}
+
+.countdown-digits.critical-time {
+  color: #ff1111;
+  animation: textFlicker 1.5s infinite, pulseWarning 1s infinite;
+}
+
+.countdown-sub-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-caution);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Facility Power & Containment Drainage Bars */
+.power-status-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+.power-metric-box {
+  background: rgba(0, 10, 0, 0.6);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+
+.power-metric-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  margin-bottom: 4px;
+}
+
+.power-bar-track {
+  height: 6px;
+  background: #111;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.power-bar-fill {
+  height: 100%;
+  background: var(--color-accent-green);
+  transition: width 1s linear, background-color 0.5s ease;
+}
+
+.power-bar-fill.warning {
+  background: var(--color-accent-amber);
+}
+
+.power-bar-fill.danger {
+  background: var(--color-accent-red-bright);
+  box-shadow: 0 0 8px rgba(255, 34, 34, 0.7);
+}
+
+/* =========================================================
+   EMERGENCY OVERRIDE CONSOLE (FINAL PUZZLE)
+   ========================================================= */
+
+.override-console-panel {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-panel);
+}
+
+.console-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-panel);
+}
+
+.console-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-terminal);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.console-instructions {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+}
+
+/* Override Code Form */
+.override-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.code-input-wrap {
+  position: relative;
+}
+
+.override-input {
+  width: 100%;
+  background: #020502;
+  border: 2px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-terminal);
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: var(--space-4) var(--space-4);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.override-input:focus {
+  outline: none;
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.35);
+  background: #040804;
+}
+
+.override-input.error {
+  border-color: var(--color-accent-red-bright);
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.5);
+  animation: shake 0.4s ease;
+  color: var(--color-text-warning);
+}
+
+.override-input.success {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+  color: #fff;
+}
+
+.override-meta-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-dim);
+}
+
+.attempts-badge {
+  color: var(--color-text-warning);
+  font-weight: 700;
+}
+
+.btn-transmit {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  background: rgba(200, 0, 0, 0.15);
+  border-color: var(--color-accent-red);
+  color: var(--color-accent-red-bright);
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.2);
+}
+
+.btn-transmit:hover:not(:disabled) {
+  background: rgba(200, 0, 0, 0.3);
+  box-shadow: var(--glow-red);
+  color: #fff;
+}
+
+.override-feedback-box {
+  min-height: 24px;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  margin-top: var(--space-2);
+}
+
+/* Subtle Hint Accordion for Escape */
+.escape-hint-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  margin-top: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.escape-hint-toggle:hover {
+  color: var(--color-text-caution);
+}
+
+.escape-hint-box {
+  background: rgba(30, 20, 0, 0.3);
+  border-left: 2px solid var(--color-accent-amber);
+  padding: var(--space-3);
+  margin-top: var(--space-2);
+  font-size: 0.68rem;
+  color: var(--color-text-caution);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SIDEBAR: INVESTIGATION DEBRIEF & SECTOR STATUS
+   ========================================================= */
+
+.escape-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Sector Lockdown Checklist */
+.sector-status-panel {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-panel);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-4);
+}
+
+.sector-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.sector-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  padding: 6px 8px;
+  background: rgba(0, 10, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--border-radius-sm);
+}
+
+.sector-name {
+  color: var(--color-text-secondary);
+}
+
+.sector-status-pill {
+  font-size: 0.58rem;
+  padding: 1px 5px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* Investigation Manifest Summary */
+.manifest-summary-panel {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-base);
+  padding: var(--space-4);
+}
+
+.manifest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.08);
+}
+
+.manifest-item:last-child {
+  border-bottom: none;
+}
+
+.manifest-label {
+  color: var(--color-text-dim);
+}
+
+.manifest-value {
+  color: var(--color-text-terminal);
+  font-weight: 600;
+}
+
+/* =========================================================
+   TRANSMISSION BROADCAST OVERLAY
+   ========================================================= */
+
+.transmission-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 5, 0, 0.96);
+  backdrop-filter: blur(8px);
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeInFromDark 0.3s ease forwards;
+}
+
+.transmission-modal {
+  background: #060b06;
+  border: 1px solid var(--color-accent-green);
+  border-radius: var(--border-radius-base);
+  max-width: 650px;
+  width: 100%;
+  padding: var(--space-8);
+  box-shadow: 0 0 60px rgba(0, 255, 65, 0.25);
+  text-align: center;
+}
+
+.transmission-log-terminal {
+  background: #020402;
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  min-height: 140px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  text-align: left;
+  margin: var(--space-4) 0;
+  overflow-y: auto;
+}
+
+/* =========================================================
+   VICTORY STATE SCREEN
+   ========================================================= */
+
+.victory-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 10, 0, 0.98);
+  z-index: 9800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  overflow-y: auto;
+  animation: pageEntrance 1s ease forwards;
+}
+
+.victory-card {
+  background: #081208;
+  border: 2px solid var(--color-accent-green);
+  border-radius: var(--border-radius-base);
+  max-width: 780px;
+  width: 100%;
+  padding: var(--space-8);
+  box-shadow: 0 0 80px rgba(0, 255, 65, 0.3);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.victory-stamp {
+  display: inline-block;
+  border: 3px solid var(--color-accent-green);
+  color: var(--color-accent-green);
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  padding: var(--space-2) var(--space-6);
+  transform: rotate(-3deg);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+  box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.victory-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: #fff;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.victory-sub {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-terminal);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-6);
+}
+
+.victory-debrief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  background: rgba(0, 20, 0, 0.5);
+  border: 1px solid var(--color-border-terminal);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .victory-debrief-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.debrief-stat-label {
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+.debrief-stat-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* =========================================================
+   FAILURE / JUMPSCARE STATE SCREEN
+   ========================================================= */
+
+.failure-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  overflow: hidden;
+}
+
+.failure-jumpscare-flash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flashOut 0.25s ease-out forwards;
+}
+
+@keyframes flashOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.failure-card {
+  background: #0e0202;
+  border: 2px solid var(--color-accent-red-bright);
+  border-radius: var(--border-radius-base);
+  max-width: 720px;
+  width: 100%;
+  padding: var(--space-8);
+  box-shadow: 0 0 100px rgba(255, 0, 0, 0.6);
+  text-align: center;
+  position: relative;
+  animation: shake 0.5s ease;
+}
+
+.failure-icon {
+  font-size: 3.5rem;
+  color: var(--color-accent-red-bright);
+  animation: dotBlink 0.5s infinite;
+  margin-bottom: var(--space-2);
+}
+
+.failure-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  color: var(--color-accent-red-bright);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  text-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+}
+
+.failure-sub {
+  font-size: var(--font-size-sm);
+  color: #ff9999;
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+}
+
+.failure-details-box {
+  background: rgba(20, 0, 0, 0.6);
+  border: 1px solid var(--color-border-warning);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+  text-align: left;
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+}
